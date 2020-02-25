@@ -4,23 +4,22 @@ class CodeClimateAPI extends RESTDataSource {
     constructor() {
         super();
         this.baseURL = 'https://api.codeclimate.com/v1/'
-        this.token = 'Token token=9971e333783ecbea443e229705ca4e94d27a08e0'
+        this.token = 'Token token=a8bd69e0e7cafd98a0581184ae71ffbf13b53cd8'
     }
 
     willSendRequest(request) {
         request.headers.set('Authorization', this.token);
-      }
+    }
 
     async getAllRepos() {
-        console.log('getAllRepos')
-        const token = '9971e333783ecbea443e229705ca4e94d27a08e0'
+        // console.log('getAllRepos')
         const query = `user`
-        const res = await this.get(query, {headers: {Authorization: `Token token=${token}`}});
-        console.log(res)
-        return Array.isArray(res.data)
+        const res = JSON.parse(await this.get(query));
+        console.log('query response:', res.data)
+        return (res.length)
             ? 
-                console.log('response:', res.data)
-                // res.map(repo => this.codeclimateReducer(repo));
+                console.log('****response.data:', res.data)
+                // res.map(repo => this.codeclimateReducer(repo))
             
             : [];  //return empty array if not
     }
