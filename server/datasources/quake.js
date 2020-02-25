@@ -9,6 +9,7 @@ class QuakeAPI extends RESTDataSource {
     async getAllQuakes() {
         const query = 'query?format=geojson&starttime=2014-01-01&endtime=2014-01-02'
         const res = await this.get(query);
+        console.log('quake', res)
         return Array.isArray(res.features)
             ? res.features.map(quake => this.quakeReducer(quake))
             : [];

@@ -28,6 +28,8 @@ module.exports = {
             dataSources.quakeAPI.getQuakeById({ quakeId: id }),
         users: (_, __, { dataSources }) =>
             dataSources.userAPI.getUsers(),
+        codeclimate: (_, __, { dataSources }) =>
+            dataSources.codeclimateAPI.getAllRepos(),
         me: (_, __, { dataSources }) =>
             dataSources.userAPI.findOrCreateUser()
     },

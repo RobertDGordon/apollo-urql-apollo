@@ -15,6 +15,7 @@ const typeDefs = gql`
         quake(id: ID!): Quake
         users: [User]
         me: User
+        codeclimate: Repo
         }
         """
         Simple wrapper around our list of quakes that contains a cursor to the
@@ -41,6 +42,10 @@ const typeDefs = gql`
         email: String!
         password: String!
         records: [Quake]
+    }
+
+    type Repo {
+        id: ID!
     }
 
     type Mutation {
