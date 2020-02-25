@@ -30,6 +30,8 @@ module.exports = {
             dataSources.userAPI.getUsers(),
         orgs: (_, __, { dataSources }) =>
             dataSources.codeclimateAPI.getAllOrgs(),
+        repos: (_, { orgId }, { dataSources }) =>
+            dataSources.codeclimateAPI.getAllRepos({ orgId }),
         me: (_, __, { dataSources }) =>
             dataSources.userAPI.findOrCreateUser()
     },

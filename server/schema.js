@@ -16,6 +16,7 @@ const typeDefs = gql`
         users: [User]
         me: User
         orgs: [Org]
+        repos (orgId: ID!): [Repo]
         }
         """
         Simple wrapper around our list of quakes that contains a cursor to the
@@ -45,9 +46,14 @@ const typeDefs = gql`
     }
 
     type Org {
-        id: ID
+        id: ID!
         name: String
         repocount: Int
+    }
+    
+    type Repo{
+        id: ID
+        name: String
     }
 
     type Mutation {
