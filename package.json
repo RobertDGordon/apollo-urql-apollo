@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd server && nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/RobertDGordon/apollo-urql-apollo/issues"
   },
-  "homepage": "https://github.com/RobertDGordon/apollo-urql-apollo#readme"
+  "homepage": "https://github.com/RobertDGordon/apollo-urql-apollo#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "apollo-datasource": "^0.7.0",
+    "apollo-datasource-rest": "^0.7.0",
+    "apollo-server": "^2.10.1",
+    "graphql": "^14.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.0"
+  }
 }
