@@ -17,6 +17,7 @@ const typeDefs = gql`
         me: User
         orgs: [Org]
         repos (orgId: ID!): [Repo]
+        project (projectId: ID!, snapshotId: ID!): Project
         }
         """
         Simple wrapper around our list of quakes that contains a cursor to the
@@ -54,6 +55,14 @@ const typeDefs = gql`
     type Repo{
         id: ID
         name: String
+        orgId: String
+        snapshotId: String
+    }
+
+    type Project{
+        id: ID
+        name: String
+        grade: String
     }
 
     type Mutation {
