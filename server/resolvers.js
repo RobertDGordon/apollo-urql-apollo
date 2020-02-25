@@ -43,6 +43,7 @@ module.exports = {
             }
         },
         saveRecord: async (_, { recordId }, { dataSources }) => {
+            console.log('save record', recordId)
             const results = await dataSources.userAPI.saveRecord({ recordId })
 
             return {

@@ -32,7 +32,7 @@ class UserAPI extends DataSource {
     }
     async saveRecord({ recordId }) {
         const userId = this.context.user.id;
-        // console.log('userId', userId)
+        console.log('context userId', userId)
         if(!userId) {
             console.log('No user on context')
         } else {
