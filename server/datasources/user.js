@@ -12,6 +12,7 @@ class UserAPI extends DataSource {
 
     async getUsers() {
         const users = this.store.users
+        console.log(users)
         return users
     }
 

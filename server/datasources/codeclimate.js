@@ -11,26 +11,25 @@ class CodeClimateAPI extends RESTDataSource {
         request.headers.set('Authorization', this.token);
     }
 
-    async getAllRepos() {
+    async getAllOrgs() {
         // console.log('getAllRepos')
-        const query = `user`
+        const query = `orgs`
         const res = JSON.parse(await this.get(query));
-        console.log('query response:', res.data)
-        return (res.length)
+        // console.log('query response:', res.data)
+        return Array.isArray(res.data)
             ? 
-                console.log('****response.data:', res.data)
-                // res.map(repo => this.codeclimateReducer(repo))
+                // console.log('****response.data:', orgsArray)
+                res.data.map(org => this.orgsReducer(org))
             
             : [];  //return empty array if not
     }
 
-    codeclimateReducer(repo){
-        console.log('ccReducer', repo)
-
-        //extrapoloate "repo" into other variables
+    orgsReducer(org){
 
         return {
-            //return "repo"
+            id: org.id,
+            name: org.attributes.name,
+            repocount: org.meta.counts.repos,
         }
     }
 }
