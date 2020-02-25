@@ -4,7 +4,6 @@ const resolvers = require('./resolvers');
 
 const { createStore } = require('./utils.js')
 
-const QuakeAPI = require('./datasources/quake.js');
 const UserAPI = require('./datasources/user.js');
 const CodeClimateAPI = require('./datasources/codeclimate.js');
 
@@ -49,7 +48,6 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-        quakeAPI: new QuakeAPI(),
         userAPI: new UserAPI({ store }),
         codeclimateAPI: new CodeClimateAPI()
     })
