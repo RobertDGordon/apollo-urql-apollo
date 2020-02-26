@@ -75,7 +75,7 @@ class CodeClimateAPI extends RESTDataSource {
         console.log(project)
         return {
             id: project.id,
-            name: 'Name of project here',
+            name: 'Mission-Control-FE',
             grade: project.attributes.ratings.length ? project.attributes.ratings[0].letter : 'This is not the grade you are looking for'
         }
     }
